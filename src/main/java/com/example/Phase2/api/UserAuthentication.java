@@ -30,57 +30,13 @@ public class UserAuthentication {
         public  void RegistAsDriverAPI(){
 
         }
-        public  class AdminData{
-                private String userName;
-                private String email;
-                private String mobileNum;
-                private String password;
 
-
-                public String getUserName() {
-                return this.userName;
-            }
-
-                public String getPassword() {
-                return this.password;
-            }
-
-
-
-                public void setPassword(String password) {
-                this.password = password;
-            }
-
-                public String getMobileNum() {
-                return this.mobileNum;
-            }
-
-                public void setMobileNum(String mobileNum) {
-                this.mobileNum = mobileNum;
-            }
-
-                public void setUserName(String userName) {
-                this.userName = userName;
-            }
-
-                public String getEmail() {
-                return this.email;
-            }
-
-                public void setEmail(String email) {
-                this.email = email;
-            }
-
-
-
-
-
-
-        }
         @PostMapping("addNewAdminAPI")
         public String AddNewAdminAPI(@RequestBody Admin admin){
+            //Add new admin using user manager service
             admin.setStatus("admin");
             boolean added=UserManager.addNewAdmin(admin);
+
             if (added){
                 return "Admin added successfully";
             }
