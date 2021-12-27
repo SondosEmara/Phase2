@@ -2,6 +2,7 @@ package com.example.Phase2.model;
 
 
 import com.example.Phase2.Service.RideManager;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,24 @@ public class Driver extends User {
     private int currentRideId=-1;
     public void setAdmin(Admin admin){this.admin=admin;}
 
+    public Driver(@JsonProperty("userName") String userName,
+                  @JsonProperty("email") String  email,
+                  @JsonProperty("mobileNum") String  mobileNum,
+                  @JsonProperty("password") String password,
+                  @JsonProperty("drivingLicense") String drivingLicense,
+                  @JsonProperty("nationalId") String  nationalId){
+
+
+        this.setUserName(userName);
+        this.setEmail(email);
+        this.setMobileNum(mobileNum);
+        this.setPassword(password);
+        this.nationalId=nationalId;
+        this.drivingLicense=drivingLicense;
+
+
+    }
+    public Driver(){}
     public void setcurrentRideId(int currentRideId){
         this.currentRideId=currentRideId;
     }

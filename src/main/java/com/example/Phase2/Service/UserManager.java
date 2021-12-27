@@ -1,13 +1,11 @@
 package com.example.Phase2.Service;
 
 import com.example.Phase2.model.Admin;
-import com.example.Phase2.model.Iregister;
 import com.example.Phase2.model.Passenger;
 import com.example.Phase2.model.User;
 
 import com.example.Phase2.model.Driver;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public  class UserManager {
 
@@ -44,33 +42,19 @@ public  class UserManager {
         return targetUser;
     }
 
-    public static void newRegister(Iregister registerType) {
+    public static boolean newRegister(User newUser) {
 
-        String email = "";
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter userName:");
-        String userName = input.next();
-        System.out.println("The email is not mandratory:Enter yes TO enter or no:");
-        String opinion = input.next();
+        try {
+            if (newUser instanceof Passenger) {
+                newUser.setStatus("Active");
+            } else if (newUser instanceof Driver) {
+                newUser.setStatus("pandding");
+            }
+            newUser.setUserId(++usersNumber);
+            systemUsers.add(newUser);
+            return true;
+        }catch(Exception error){return false;}
 
-        if ("yes".equalsIgnoreCase(opinion)) {
-            System.out.println("Enter email:");
-            email = input.next();
-        }
-
-        System.out.println("Enter mobilPhone:");
-        String mobilPhone = input.next();
-        System.out.println("Enter password:");
-        String password = input.next();
-
-        User newUser = registerType.registerLogic(userName, email, mobilPhone, password);
-        if (newUser instanceof Passenger) {
-            //newUser.setScreenType(new PassengerScreen());
-        } else if (newUser instanceof Driver) {
-            //newUser.setScreenType(new DriverScreen());
-        }
-        newUser.setUserId(++usersNumber);
-        systemUsers.add(newUser);
     }
 
     public static boolean addNewAdmin(User newAdmin) {

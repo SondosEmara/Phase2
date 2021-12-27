@@ -57,11 +57,11 @@ public class Ride {
 
         public  Map<Integer, String>getRideoffers(){return rideOffers;}
 
-        void setDriver(Driver driver) {
+        public void setDriver(Driver driver) {
             this.driver=driver;
         }
 
-        Driver getDriver(){return driver;}
+        public Driver getDriver(){return driver;}
 
 
 

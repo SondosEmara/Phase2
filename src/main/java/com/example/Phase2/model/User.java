@@ -14,6 +14,11 @@ public abstract class User
     private Iscreen userScreen;
     private  int userId ;
 
+    public User(@JsonProperty("userName") String userName,
+                @JsonProperty("password") String password){
+        this.password=password;
+        this.userName=userName;
+    }
 
 
     public  User(){}
