@@ -11,7 +11,6 @@ public abstract class User
     private String mobileNum;
     private String password;
     private String status;
-    private Iscreen userScreen;
     private  int userId ;
 
     public User(@JsonProperty("userName") String userName,
@@ -65,13 +64,7 @@ public abstract class User
         this.email = email;
     }
 
-    void setScreenType(Iscreen screenType) {
-        userScreen = screenType;
-    }
 
-    void openScreen() {
-        this.userScreen.displayFeatures(userId);
-    }
 
 
 
