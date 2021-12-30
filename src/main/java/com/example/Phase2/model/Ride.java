@@ -37,7 +37,7 @@ public class Ride {
             this.rideId = rideId;
         }
 
-        void setPassenger(Passenger passenger) {
+        public void setPassenger(Passenger passenger) {
             this.passenger=passenger;
 
         }
