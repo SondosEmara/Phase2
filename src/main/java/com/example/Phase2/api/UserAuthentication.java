@@ -2,6 +2,7 @@ package com.example.Phase2.api;
 import com.example.Phase2.Service.UserManager;
 import com.example.Phase2.model.Admin;
 import com.example.Phase2.model.Driver;
+
 import com.example.Phase2.model.Passenger;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class UserAuthentication {
 
         @PostMapping ("UserRegister")
         public String AddNewPassengerApi(@RequestBody Passenger passenger){
-            boolean added= UserManager.newRegister(passenger);
+            boolean added= UserManager.addNewUser(passenger);
             if (added){
                 return "passenger added successfully ,User ID "+passenger.getUserId();
             }
@@ -24,7 +25,7 @@ public class UserAuthentication {
         @PostMapping("DriverRegister")
         public String AddNewDriverAPI(@RequestBody Driver driver){
                 //Add new Driver using user manager service
-                boolean added= UserManager.newRegister(driver);
+                boolean added= UserManager.addNewUser(driver);
                 if (added){
                     return "Driver added successfully , Driver Id: "+driver.getUserId();
                 }
